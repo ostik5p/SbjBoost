@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>SbjBoost</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles/base.css?v=5" />
+  <link rel="stylesheet" href="./styles/layout.css?v=5" />
+  <link rel="stylesheet" href="./styles/components.css?v=5" />
+  <link rel="stylesheet" href="./styles/leagues.css?v=5" />
+  <style>
+    .hero-banner {
+      max-width: 1100px;
+      margin: 0 auto 26px;
+      padding: 26px 28px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(16, 185, 129, 0.10));
+      border: 1px solid rgba(59, 130, 246, 0.22);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.25);
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-banner h2 {
+      margin-bottom: 8px;
+      color: white;
+      font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+    }
+
+    .hero-banner p {
+      color: #dbeafe;
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions button {
+      min-width: 170px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔝 Navbar -->
+  <header id="navbar">
+    <div class="navbar-inner">
+      <div class="brand-block">
+        <div class="brand-mark">S</div>
+        <div>
+          <h1>SbjBoost</h1>
+          <p class="nav-subtitle">Fast learning with leagues and challenges</p>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button id="nav-topics" class="nav-item active">🏠 Home</button>
+        <button id="nav-notes" class="nav-item">📚 Notes</button>
+        <button id="nav-leagues" class="nav-item">🏆 Leagues</button>
+      </nav>
+
+      <div class="nav-status">
+        <div id="nav-xp" class="nav-stat">0 XP</div>
+        <div id="nav-league" class="league-badge bronze">Bronze</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="home-section">
+    <div class="hero-banner">
+      <div>
+        <h2>Learn faster with challenges, streaks, and rewards</h2>
+        <p>Make studying feel like a game with colorful goals, progress tracking, and quick start quizzes for every subject.</p>
+      </div>
+      <div class="hero-actions">
+        <button onclick="document.getElementById('topics-section').scrollIntoView({behavior:'smooth'})">Start a quiz</button>
+        <button class="secondary-button" onclick="document.getElementById('progress-section').scrollIntoView({behavior:'smooth'})">View progress</button>
+      </div>
+    </div>
+
+    <!-- 📊 Progress / League -->
+    <section id="progress-section">
+      <div id="progress-container"></div>
+    </section>
+
+    <!-- 📚 Topics -->
+    <section id="topics-section">
+      <div class="section-header">
+        <div>
+          <h2>Choose a topic to study</h2>
+          <p>Earn points, save your test history, and compete with your best streak.</p>
+        </div>
+      </div>
+
+      <div class="topics-controls">
+        <div class="search-wrapper">
+          <input id="topic-search" type="search" placeholder="Search for topic or keyword..." />
+          <button id="topic-search-button">🔍</button>
+        </div>
+        <div class="topics-filter">
+          <button class="filter-pill active" data-filter="">All subjects</button>
+          <button class="filter-pill" data-filter="math">Mathematics</button>
+          <button class="filter-pill" data-filter="english">English</button>
+          <button class="filter-pill" data-filter="history">History</button>
+          <button class="filter-pill" data-filter="it">IT</button>
+          <button class="filter-pill" data-filter="science">Science</button>
+        </div>
+      </div>
+
+      <div id="topics-container"></div>
+    </section>
+  </section>
+
+  <!-- 🏅 Ліга -->
+  <section id="league-section" class="hidden">
+    <div class="section-header">
+      <div>
+        <h2>Leagues</h2>
+        <p>Check your progress and achievements at each level.</p>
+      </div>
+    </div>
+    <div id="league-container"></div>
+  </section>
+
+  <!-- 📖 Notes -->
+  <section id="notes-section" class="hidden">
+    <h2>Study Notes</h2>
+    <div id="notes-container"></div>
+  </section>
+
+  <!-- 🧠 Tests -->
+  <section id="tests-section" class="hidden">
+    <h2>Test Yourself</h2>
+    <div id="tests-container"></div>
+  </section>
+
+  <!-- 🤖 Bot -->
+  <section id="bot-section" class="hidden">
+    <h2>AI Opponent</h2>
+    <div id="bot-container"></div>
+  </section>
+
+  <!-- 📢 Modal -->
+  <div id="modal-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="./sbjboost/app.js?v=5"></script>
+
+</body>
+</html>
